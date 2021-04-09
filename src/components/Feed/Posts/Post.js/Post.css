@@ -1,0 +1,79 @@
+.post {
+    margin-top: .3rem;
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 520px;
+}
+.post__header {
+    display: flex;
+    justify-content: space-evenly;
+    padding: .5rem;
+    align-items: center;
+    margin-bottom: .1rem;
+    margin-left: -.2rem;
+
+}
+
+.post__ownerImage {
+    flex: 0.1;
+}
+
+.post__ownerName {
+    font-size: .9rem;
+    color: gray;
+}
+.post__desc{
+    font-size: .75rem;
+    color: gray;
+}
+
+.post__postedHr {
+    display: flex;
+    align-items: center;
+    color: gray;
+    font-size: .8rem;
+    width: 3.5rem;
+    justify-content: space-evenly;
+
+}
+
+.post__publicIcn {
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle;
+    color: gray;
+    padding-top: .2rem;
+}
+.post__ownerDesc {
+    flex: 0.8;
+}
+
+.post__showMore {
+    margin-top: -1.8rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.post__body > p {
+    padding: 0 .8rem .5rem 1rem;
+    font-size: .95rem;
+}
+.post__body > img {
+    width: 100%;
+    flex-basis: 20rem;
+}
+
+.post__feedbacks {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    padding: 0rem 1rem .5rem 1rem;
+}
+
+.post__reacts {
+    margin-left: 1rem;
+}

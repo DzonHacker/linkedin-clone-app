@@ -1,0 +1,86 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+.login__logo {
+    height: 100px;
+    width: 100%;
+    margin-left: -15px;
+    margin-bottom: -5px;
+}
+.login__logo > img {
+    height: 100%;
+    object-fit: contain;
+    
+}
+.login__container {
+    border: 1px solid whitesmoke;
+    padding: 1.3rem;
+    /* box-shadow: 2px 2px 10px 2px rgb(0,0,0,15%), -2px -2px 10px -2px  rgb(0,0,0,15%); */
+    box-shadow: 0px 4px 12px rgb(0,0,0,15%);
+    background-color: white;
+    border-radius: .3rem;
+}
+
+.login__container > h1 {
+    font-weight: 600;
+}
+.login__container > p {
+    margin-bottom: 10px;
+    font-size: .9rem;
+}
+.form > h3  {
+    padding: 1rem 0rem;
+    font-size: 1rem;
+    color: #0a66c2;
+}
+
+.login__email, .login__password {
+    outline: none;
+    padding: .8rem;
+    margin-top: 1rem;
+    width: 20rem;
+    font-size: 1.2rem;
+    border-radius: .3rem;
+    border: .08rem solid rgba(0,0,0,0.6);
+    position: relative;
+}
+
+.form__loginBtn {
+    width: 100%;
+    text-align: center;
+    padding: 1.1rem 0rem;
+    border-radius: 60px;
+    outline: none;
+    border: 1px solid #0a66c2;
+    background-color: #0a66c2;
+    transition: all 0.2s ease-in;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.form__loginBtn:hover {
+    background-color: #004182;
+}
+
+.login__newUser {
+    padding: 2.5rem 0rem;
+    text-align: center;
+}
+
+.login__newUser > a {
+    color: #0a66c2;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* @media screen and (max-width: 400px) {
+
+} */

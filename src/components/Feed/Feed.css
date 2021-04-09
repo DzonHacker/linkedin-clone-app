@@ -1,0 +1,52 @@
+.feed {
+    flex: 0 0 520px;
+    margin: 0 1.5rem;
+    width: 520px;
+    margin-top: 17px;
+}
+
+.feed__inputContainer {
+    padding: .7rem;
+    background-color: white;
+    border-radius: .6rem;
+    border: .6px solid lightgray;
+    
+}
+.feed__input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feed__img {
+    width: 10%;
+}
+.feed__avatar {
+    height: 44px !important;
+    width: 44px !important;
+}
+.feed__inputBox {
+    width: 90%;
+    height: 50px;
+    margin-left: .5rem;
+    border-radius: 90px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid lightgray;
+    padding: .6rem;
+    background-color: white;
+    text-align: left;
+    color: gray;
+    font-weight: 600;
+}
+
+.feed__inputBox:hover {
+    background-color: #f3f2ef;
+    color: gray;
+}
+.feed__media {
+    display: flex;
+    justify-content: space-between;
+    margin-top: .3rem;
+    margin-bottom: -.4rem;
+}

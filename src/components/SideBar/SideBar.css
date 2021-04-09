@@ -1,0 +1,101 @@
+.sidebar {
+    top: 80px;
+    flex: 0.2;
+    border-radius: 10px;
+    text-align: center;
+    height: fit-content;
+}
+
+.sidebar__top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid lightgray;
+    border-bottom: 0;
+    border-top-left-radius: .7rem;
+    border-top-right-radius: .7rem;
+    background-color: white;
+    padding-bottom: .7rem;
+    
+}
+.sidebar__top > img {
+    width: 100%;
+    margin-bottom: -1.4rem;
+    height: 4rem;
+    border-top-left-radius: .6rem;
+    border-top-right-radius: .6rem;
+    object-fit: cover;
+}
+
+.sidebar__top > h2 {
+    font-size: 18px;
+}
+.sidebar__top > h4 {
+    color: gray;
+    font-size: .75rem;
+    padding: 0 .5rem;
+}
+.sidebar__avatar {
+    margin-bottom: 1rem;
+}
+
+.sidebar__stats {
+    border: 1px solid lightgray;
+    border-top: none;
+    border-bottom-left-radius: .7rem;
+    border-bottom-right-radius: .7rem;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: .7rem;
+}
+
+.sidebar__stat {
+    display: flex;
+    justify-content: space-between;
+    margin-top: .7rem;
+}
+
+.sidebar__stat > p {
+    font-size: .8rem;
+    font-weight: 600;
+    color: gray;
+}
+.sidebar__statNumber {
+    color: #378fe9 !important;
+    font-weight: bold;
+}
+
+.sidebar__bottom {
+    background-color: white;
+    border-radius: .7rem;
+    border: 1px solid lightgray;
+    text-align: left;
+    padding: .6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.sidebar__recents {
+    display: flex;
+    font-size: .9rem;
+    color: gray;
+    font-weight: bold;
+    cursor: pointer;
+    padding: .3rem;
+}
+
+.sidebar__recents:hover {
+    color: black;
+    background-color: whitesmoke;
+    border-radius: .6rem;
+}
+
+.sidebar__hash {
+    margin: 0 .6rem;
+}
+
+.sidebar__bottom > p {
+    font-size: 1rem;
+    margin-bottom: .6rem;
+}

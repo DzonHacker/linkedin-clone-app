@@ -1,0 +1,21 @@
+.feed__mediaIconHandler {
+    display: flex;
+    padding: .8rem .4rem .8rem .4rem;
+    border-radius: .3rem;
+    text-align: center;
+    transform: all 0.3s ease-in;
+    cursor: pointer;
+    
+}
+
+.feed__mediaIconHandler > h3 {
+    color: gray;
+    font-size: 0.9rem;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: .3rem;
+}
+
+.feed__mediaIconHandler:hover {
+    background-color: rgba(0,0,0,0.08);
+}
