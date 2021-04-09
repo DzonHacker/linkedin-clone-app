@@ -1,13 +1,24 @@
+
 .header {
-    position: sticky;
+    background-color: #ffffff;
+    width: 100vw;
+    border-bottom: 0.1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 999;
+}
+
+/* small trick to center items in flex */
+.header__wrapper {
     top: 0;
     display: flex;
-    justify-content: space-evenly;
-    border-bottom: 0.1px solid lightgray;
     padding: 10px 0;
-    width: 100%;
-    z-index: 999;
-    background-color: #ffffff;
+    text-align: center;
+    margin: 0px auto;
+    align-items: center;
+    min-height: 100%;
+    width: 1128px;
 }
 
 .header__left {
@@ -39,5 +50,97 @@
 
 .header__right {
     display: flex;
-    
+}
+
+.dropdown {
+    position: relative;
+    box-sizing: border-box;
+}
+.header__end {
+}
+.header__end > p {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+
+.dropdown__container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: .3rem;
+    box-shadow: 0px 4px 12px rgba(0,0,0,15%);
+    width: 16.5rem;
+    overflow: hidden;
+    position: absolute;
+    display: none;
+}
+.dropdown:hover .dropdown__container {
+    display: block;
+}
+
+.dropdown__top, .dropdown__center, .dropdown__bottom,.dropdown__signout {
+    padding: .6rem;
+}
+
+.dropdown__profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: .6rem;
+
+}
+
+.dropdown__profileImg {
+    width: 48px !important;
+    height: 48px !important;
+}
+.dropdown__profileInfo {
+    margin-left: .6rem;
+    margin-bottom: .3rem;
+
+}
+.dropdown__profileInfo > h2 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.dropdown__profileInfo > p {
+    font-size: .9rem;
+}
+
+.dropdown__top > button {
+    width: 100%;
+    padding: .2rem 0rem;
+    border-radius: 10px;
+    border: .12rem solid #0a66c2;
+    background-color: white;
+    font-size: .9rem;
+    font-weight: 600;
+    line-height: 15px;
+    color: #0a66c2;
+    cursor: pointer;
+    outline: none;
+}
+.dropdown__splitter {
+    width: 100%;
+    border: 1px solid rgba(160,160,255,0.1);
+    margin: .2rem;
+    border-width: 0.01em;
+    box-sizing: border-box;
+}
+
+.dropdown__account > h3, .dropdown__manage > h3 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.dropdown__account > p, .dropdown__manage > p , .dropdown__signout > p{
+    font-size: .9rem;
+    color: rgba(0,0,0,0.6);
+    padding:.2rem 0rem;
+    cursor: pointer;
+}
+
+.dropdown__account > p:hover, .dropdown__manage > p:hover , .dropdown__signout > p:hover{
+    text-decoration: underline;
 }

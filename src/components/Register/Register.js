@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { auth } from '../../firebase'
 import { login } from '../../features/userSlice'
 import './Login.css'
-const Login = () => {
+const Register = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -11,7 +11,7 @@ const Login = () => {
 
     const dispatch = useDispatch()
 
-    const LoginHandler = (e) => {
+    const RegisterHandler = (e) => {
         e.preventDefault();
         
         auth.signInWithEmailAndPassword(email, password)
@@ -31,37 +31,37 @@ const Login = () => {
 
     }
     return (
-        <div className="login">
-            <div className="login__wrapper">
-                <div className="login__logo">
+        <div className="register">
+            <div className="register__wrapper">
+                <div className="register__logo">
                     <img src="https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Logo.wine.svg"/>
                 </div>
-                <div className="login__container">
+                <div className="register__container">
                     <h1>Sign in</h1>
                     <p>Stay updated on your professional world</p>
-                    <form className="form">
-                        <div className="form__container">
+                    <form className="rform">
+                        <div className="rform__container">
                             <input id="id__email" 
-                            className="login__email" 
+                            className="register__email" 
                             type="email" 
                             placeholder="Email" 
                             onChange={ e=> setEmail(e.target.value)}/>
                         </div>
-                        <div className="form__container">
+                        <div className="rform__container">
                             <input id="id__password" 
-                            className="login__password" 
+                            className="register__password" 
                             type="password" 
                             placeholder="Password" 
                             onChange = {e=> setPassword(e.target.value)}/>
                         </div>
                         <h3><a>Forgot password?</a></h3>
-                        <input className="form__loginBtn" type="submit" value="Sign in" onClick={LoginHandler}/>
+                        <input className="rform__registerBtn" type="submit" value="Agree &amp Join" onClick={RegisterHandler}/>
                     </form>
                 </div>
-                <p className="login__newUser">New to LinkedIn? <a>Join now</a></p>
+                <p className="signIn__oldUser">Already on LinkedIn? <a>Sign in</a></p>
             </div>      
         </div>
     )
 }
 
-export default Login
+export default Register

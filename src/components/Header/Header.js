@@ -7,25 +7,78 @@ import WorkIcon from '@material-ui/icons/Work'
 import ChatIcon from '@material-ui/icons/Chat'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { Avatar } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../features/userSlice'
+import { auth } from '../../firebase'
 
 const Header = () => {
+    const dispatch = useDispatch()
+    const HandleSignOut = () => {
+        dispatch(logout())
+        auth.signOut()
+    }
     return (
         <header className="header">
-            <div className="header__left">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png"/>
-                <div className="header__search">
-                    <SearchIcon />
-                    <input type="text" />
+            <div className="header__wrapper">
+                <div className="header__left">
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png"/>
+                   <div className="header__search">
+                       <SearchIcon />
+                       <input type="text" />
+                   </div>
+                </div>
+                <div className="header__right">
+                   <HeaderOption Icon={HomeIcon} title="Home"/>
+                   <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
+                   <HeaderOption Icon={WorkIcon} title="Jobs"/>
+                   <HeaderOption Icon={ChatIcon} title="Messaging" />
+                   <HeaderOption Icon={NotificationsIcon} title="Notifications" />
+                   <div className="dropdown">
+                       <HeaderOption Icon={AccountCircleIcon} title="Me" />
+                       <div className="dropdown__container">
+                           <section className="dropdown__top">
+                               <div className="dropdown__profile">
+                                   <Avatar className="dropdown__profileImg"/>
+                                   <div className="dropdown__profileInfo">
+                                       <h2>John Sherchan</h2>
+                                       <p>Description..</p>
+                                   </div>
+                               </div>
+                               <button>View Profile</button>
+
+                           </section>
+                           <div className="dropdown__splitter"></div>
+                           <section className="dropdown__center">
+                               <div className="dropdown__account">
+                                   <h3>Account</h3>
+                                   <p><a>Settings and Privacy</a></p>
+                                   <p><a>Help</a></p>
+                                   <p><a>Language</a></p>
+                               </div>
+
+                           </section>
+                           <div className="dropdown__splitter"></div>
+                           <section className="dropdown__bottom">
+                               <div className="dropdown__manage">
+                                 <h3>Manage</h3>
+                                 <p><a>Posts and Activity</a></p>
+                                 <p><a>Job Posting Account</a></p>
+                               </div>
+
+                           </section>
+                           <div className="dropdown__splitter"></div>
+                           <section className="dropdown__signout">
+                               <p><a onClick={HandleSignOut}>Sign Out</a></p>
+                           </section>
+                       </div>
+                    </div>
+                </div>  
+                <div className="header__end">
+                    <p>| Designed By John Sherchan</p>
                 </div>
             </div>
-            <div className="header__right">
-                <HeaderOption Icon={HomeIcon} title="Home"/>
-                <HeaderOption Icon={SupervisorAccountIcon} title="My Network" />
-                <HeaderOption Icon={WorkIcon} title="Jobs"/>
-                <HeaderOption Icon={ChatIcon} title="Messaging" />
-                <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-                <HeaderOption Icon={AccountCircleIcon} title="Me" />
-            </div>
+            
 
         </header>
     )
