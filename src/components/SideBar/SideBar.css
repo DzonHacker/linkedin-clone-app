@@ -1,9 +1,9 @@
 .sidebar {
     top: 80px;
-    flex: 0.2;
     border-radius: 10px;
     text-align: center;
     height: fit-content;
+    flex: 0 0 250px;
 }
 
 .sidebar__top {
@@ -37,6 +37,8 @@
 }
 .sidebar__avatar {
     margin-bottom: 1rem;
+    width: 54px !important;
+    height: 54px !important;
 }
 
 .sidebar__stats {

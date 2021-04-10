@@ -16,7 +16,6 @@ const Posts = () => {
             })))
         })
     },[])
-    console.log(post)
     return (
         <div className="posts">
             {
@@ -26,6 +25,7 @@ const Posts = () => {
                         name = {data.name}
                         message = {data.message}
                         imageUrl = {data.photoUrl}
+                        profilePic = {data.profileUrl}
                         timeStamp = {data.timeStamp}
                     />
                     

@@ -1,15 +1,18 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { auth } from '../../firebase'
 import { login } from '../../features/userSlice'
 import './Login.css'
+import { Redirect, useHistory, useLocation } from 'react-router'
+import { AuthContext } from '../ProtectedRoute/Auth'
 const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [name, setName] = useState("")    
 
     const dispatch = useDispatch()
+    
+    
 
     const LoginHandler = (e) => {
         e.preventDefault();
@@ -22,14 +25,18 @@ const Login = () => {
                     displayName: userAuth.user.displayName,
                     profileUrl: userAuth.user.photoURL
                 }))
+                window.location.href = "/"
             }).catch(err=>{
                 console.log(err)
             })
     }
 
-    const Register = () => {
+    const { authorizedUser } = useContext(AuthContext)
 
+    if(authorizedUser) {
+        return <Redirect to="/" />
     }
+
     return (
         <div className="login">
             <div className="login__wrapper">
@@ -58,7 +65,7 @@ const Login = () => {
                         <input className="form__loginBtn" type="submit" value="Sign in" onClick={LoginHandler}/>
                     </form>
                 </div>
-                <p className="login__newUser">New to LinkedIn? <a>Join now</a></p>
+                <p className="login__newUser">New to LinkedIn? <a href="/register">Join now</a></p>
             </div>      
         </div>
     )

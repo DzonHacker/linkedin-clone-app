@@ -14,38 +14,48 @@
     top: 0;
     display: flex;
     padding: 10px 0;
-    text-align: center;
     margin: 0px auto;
     align-items: center;
     min-height: 100%;
     width: 1128px;
+    min-width: 50px;
 }
 
 .header__left {
     display: flex;
+    flex: 1;
+    margin-right: 20px;
+    z-index: 222;
 }
 .header__left > img {
     object-fit: contain;
     height: 40px;
     margin-right: 10px;
+    padding-left: 1.2rem;
 }
 
 
 .header__search {
     border-radius: 5px;
     display: flex;
+    width: 55%;
     padding: 10px;
     align-items: center;
     height: 22px;
     background: #eef3f8;
     color: gray;
+    transition: all 0.3s ease-in;
+    
 }
-
+.grow {
+    flex-grow: 0.6;
+}
 .header__search > input {
     outline: none;
     border: none;
     background: #eef3f8;
     margin-left: .5rem;
+    width: 100%;
 }
 
 .header__right {
@@ -143,4 +153,29 @@
 
 .dropdown__account > p:hover, .dropdown__manage > p:hover , .dropdown__signout > p:hover{
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1028px){
+    .header__search > input {
+        display: none;
+    }
+    .header__search {
+        border-radius: 5px;
+        width: 25px;
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        height: 22px;
+        background: #eef3f8;
+        color: gray;
+        transition: all 0.3s ease-in;
+        flex: 0.2;
+    }
+    .header__left {
+        flex: 0.4;
+    }
+    .expand {
+        width: 80px;
+        display: block;
+    }
 }

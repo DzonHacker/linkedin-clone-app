@@ -1,4 +1,3 @@
-
 import { Avatar } from '@material-ui/core'
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import FavoriteIcon from '@material-ui/icons/Favorite';
@@ -10,18 +9,51 @@ import SendIcon from '@material-ui/icons/Send'
 import './Post.css'
 import FeedMedia from '../../FeedMedia/FeedMedia';
 
-const Post = ({name, desc, message, imageUrl, timeStamp}) => {
+const Post = ({name, desc, message, imageUrl, profilePic, timeStamp}) => {  
+    const currEpoch = Math.round(Date.now() / 1000)
+    const seconds = Number(timeStamp ? timeStamp.seconds: new Date(currEpoch)) //old date
+    const calcUpdatedTime = () => {
+        const postedDate = new Date(seconds)
+        const currentDate = new Date((currEpoch))
+        // getting time and substrating to find relative time
+        const interval = currentDate.getTime() - postedDate.getTime()
+
+        //calculating relative time
+        const mo = Math.floor(interval / 2592000)
+        const d = Math.floor(interval / (3600*24))
+        const h = Math.floor(interval % (3600*24) / 3600);
+        const m = Math.floor(interval % 3600 / 60);
+        const s = Math.floor(interval / (60/60))
+
+        if(mo>=1){
+            return <p>{`${mo} mo`} <span> ● </span> </p>
+        }
+        if(d>=1){
+            return <p>{`${d} d`} <span> ● </span> </p>
+        }
+        if(h>=1){
+            return <p>{`${h} h`} <span> ● </span> </p>
+        }
+        if(m>=1){
+            return <p>{`${m} m`} <span> ● </span> </p>
+        }
+        if(s <= 59) {
+            return <p>{`${s} s`} <span> ● </span> </p>
+        }
+
+    }
     return (
         <article className="post">
             <section className="post__header">
                 <div className="post__ownerImage">
-                    <Avatar />
+                    <Avatar src={profilePic}/>
                 </div>
                 <div className="post__ownerDesc">
                     <h2 className="post__ownerName">{name}</h2>
                     <p className="post__desc">{desc}</p>
                     <div className="post__postedHr">
-                        <p>9m <span> ● </span> </p>
+                        {/* <p>9m <span> ● </span> </p> */}
+                        {calcUpdatedTime()}
                         <PublicIcon className="post__publicIcn"/>
                         
                     </div>
