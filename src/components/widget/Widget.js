@@ -22,6 +22,7 @@ const Widget = () => {
             <section className="widget__bottom">
                 <img src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg" alt=""/>
             </section>
+            <p className="source"><a className="source__code" href="https://github.com/DzonHacker/linkedin-clone-app" target="__blank">Source Code</a></p>
         </div>
     )
 }

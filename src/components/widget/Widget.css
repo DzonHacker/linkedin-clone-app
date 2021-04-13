@@ -39,3 +39,26 @@
     object-fit: contain;
     cursor: pointer;
 }
+
+.source {
+    text-align: center;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: .5rem;
+    height: 40px;
+    cursor: pointer;
+    vertical-align: middle;
+    padding-top: .2rem;
+}
+.source__code {
+    text-align: center;
+    color: #00000099;
+    width: 100%;
+    padding: 3rem .5rem;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.source:hover {
+    background-color: whitesmoke;
+}
