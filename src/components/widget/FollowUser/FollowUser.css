@@ -1,0 +1,49 @@
+.followUser {
+    display: flex;
+    flex-direction: column;
+}
+.followUser__wrapper {
+    display: flex;
+    place-items: center;
+    padding: .4rem .7rem;
+}
+
+.followUser__info {
+    margin-left: 10px;
+}
+.followUser__name {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.followUser__desc {
+    font-size: .8rem;
+    color: rgba(0,0,0,0.5);
+    margin-bottom: .3rem;
+}
+
+
+.FollowUser__followBtnWrapper {
+    width: 100px;
+    padding: .1rem .4rem;
+    display: flex;
+    border: 1px solid #00000099;
+    border-radius: 75px;
+    margin-left: 3.5rem;
+    margin-top: -5px;
+    margin-bottom: .2rem;
+}
+.followUser__addBtn {
+    color: #00000099 !important;
+}
+.followUser__followBtn {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #00000099;
+    background-color: white;
+
+}

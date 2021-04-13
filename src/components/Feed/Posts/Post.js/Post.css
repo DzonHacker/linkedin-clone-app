@@ -72,6 +72,7 @@
     width: 60%;
     justify-content: space-evenly;
     padding: 0rem 1rem .5rem 1rem;
+    margin-left: 20px;
 }
 
 .post__reacts {

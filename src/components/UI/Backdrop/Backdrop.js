@@ -1,7 +1,7 @@
 import './Backdrop.css'
 const Backdrop = (props) => {
     return (
-        props.show ? <div className="backdrop" onClick={props.backdropClicked}></div> : ''
+        props.show ? <div className={props.backdropClass} onClick={props.backdropClicked}></div> : ''
     )
 }
 

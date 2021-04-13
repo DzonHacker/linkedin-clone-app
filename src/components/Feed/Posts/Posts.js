@@ -3,7 +3,6 @@ import './Posts.css'
 
 import { db } from '../../../firebase'
 import { useEffect, useState } from 'react'
-import { ContactPhoneSharp, SettingsInputCompositeSharp } from '@material-ui/icons'
 
 const Posts = () => {
     const [post, setPost] = useState([])
@@ -28,8 +27,6 @@ const Posts = () => {
                         profilePic = {data.profileUrl}
                         timeStamp = {data.timeStamp}
                     />
-                    
-                    console.log(data)
                 })
             }
         </div>

@@ -1,19 +1,20 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { auth } from '../../firebase'
 import { login } from '../../features/userSlice'
 import './Register.css'
 import { AuthContext } from '../ProtectedRoute/Auth'
-import { Redirect, useRouteMatch } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
+
 const Register = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")    
-
     const dispatch = useDispatch()
 
     const {authorizedUser} = useContext(AuthContext)
+    let history = useHistory()
 
     const RegisterHandler = (e) => {
         e.preventDefault();
@@ -23,24 +24,24 @@ const Register = () => {
 
         auth.createUserWithEmailAndPassword(email,password)
             .then(authUser=>{
-                authUser.user.updateProfile({
+                return authUser.user.updateProfile({
                     displayName: name,
-                    photoURL: `http://www.avatarpro.biz/avatar/${name}?s=500`
-                })
-                .then(()=>{
+                    photoURL: `https://avatars.dicebear.com/api/male/${new Date().getTime()}.svg`
+                })        
+            })
+            .then(()=>{
+                    console.log(auth.currentUser.displayName)
                     dispatch(login({
-                        email: authUser.user.email,
-                        uid: authUser.user.uid,
-                        displayName: authUser.user.displayName,
-                        profileUrl: authUser.user.photoURL
+                        email: auth.currentUser.email,
+                        uid: auth.currentUser.uid,
+                        displayName: auth.currentUser.displayName,
+                        profileUrl: auth.currentUser.photoURL
                     }))
+                    window.location.href = '/'     
                 })
-                window.location.href = '/'
-            })
-            .catch((error)=>{
-                console.log(error.message)
-            })
-         
+                .catch((error)=>{
+                    alert(error.message)
+                })
     }
 
     if(authorizedUser){
@@ -51,7 +52,7 @@ const Register = () => {
         <div className="register">
             <div className="register__wrapper">
                 <div className="register__logo">
-                    <img src="https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Logo.wine.svg"/>
+                    <img src="https://www.logo.wine/a/logo/LinkedIn/LinkedIn-Logo.wine.svg" alt=""/>
                 </div>
                 <div className="register__container">
                     <h1>Register</h1>
@@ -78,7 +79,7 @@ const Register = () => {
                             placeholder="Password" 
                             onChange = {e=> setPassword(e.target.value)}/>
                         </div>
-                        <h3><a>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</a></h3>
+                        <h3>By clicking Agree & Join, you agree to the LinkedIn User Agreement, Privacy Policy, and Cookie Policy.</h3>
                         <input className="rform__registerBtn" type="submit" value="Agree & Join" onClick={RegisterHandler}/>
                     </form>
                 </div>

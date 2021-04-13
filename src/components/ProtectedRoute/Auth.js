@@ -7,7 +7,15 @@ const AuthProvider = (props) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
-        auth.onAuthStateChanged((authUser)=> {
+        // auth.onAuthStateChanged((authUser)=> {          
+        //     if(authUser){
+        //         setAuthorizedUser(authUser)
+        //     }
+        //     setLoading(false)
+        // })
+        new Promise(resolve=>{
+            auth.onAuthStateChanged(resolve)
+        }).then(authUser =>{
             setAuthorizedUser(authUser)
             setLoading(false)
         })
@@ -15,6 +23,7 @@ const AuthProvider = (props) => {
     if(loading) {
         return <p>Loading ...</p>
     }
+
     return (
         <AuthContext.Provider value={{authorizedUser}}>
             {props.children}

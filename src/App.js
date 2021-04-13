@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import Login from './components/Login/Login';
 import Home from './container/Home';
-import {login, logout, selectUser} from './features/userSlice'
+import {login, logout} from './features/userSlice'
 import { auth } from './firebase';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Register from './components/Register/Register';
@@ -12,7 +12,7 @@ import AuthProvider from './components/ProtectedRoute/Auth';
 
 
 function App() {
-  const user = useSelector(selectUser)
+
   const dispatch = useDispatch()
 
   useEffect(()=> {
@@ -41,6 +41,7 @@ function App() {
             </Route>
             <ProtectedRoute path="/home" component={Home} />
             <ProtectedRoute path="/" component={Home}  />
+            
           </Switch>
       </div>
       </Router>

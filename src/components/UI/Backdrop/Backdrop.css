@@ -10,3 +10,7 @@
 .show {
     display: block;
 }
+
+.zidx {
+    z-index: 1111;
+}

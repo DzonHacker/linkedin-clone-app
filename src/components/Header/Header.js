@@ -6,27 +6,35 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount'
 import WorkIcon from '@material-ui/icons/Work'
 import ChatIcon from '@material-ui/icons/Chat'
 import NotificationsIcon from '@material-ui/icons/Notifications'
-import { Avatar, colors } from '@material-ui/core'
-import { useDispatch, useSelector } from 'react-redux'
+import { Avatar } from '@material-ui/core'
+import { useDispatch } from 'react-redux'
 import { logout } from '../../features/userSlice'
 import { auth } from '../../firebase'
 import { AuthContext } from '../ProtectedRoute/Auth'
 import { useContext } from 'react'
+import { useHistory } from 'react-router'
+
 
 
 
 const Header = (props) => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const HandleSignOut = () => {
-        dispatch(logout())
-        auth.signOut()
+        auth.signOut().then(()=>{
+            dispatch(logout())
+            window.location.href="/login"
+        })
+        
     }
     const {authorizedUser} = useContext(AuthContext)
+
+
     return (
         <header className="header">
             <div className="header__wrapper">
                 <div className="header__left">
-                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png"/>
+                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/600px-LinkedIn_logo_initials.png" alt=""/>
                    <div className={`header__search ${props.grow ? `grow`: ``}`}  onClick={()=>{props.onInutClicked()}}>
                        <SearchIcon />
                        <input className={props.grow ? `expand`:``}  type="text" />
@@ -39,13 +47,13 @@ const Header = (props) => {
                    <HeaderOption Icon={ChatIcon} title="Messaging" />
                    <HeaderOption Icon={NotificationsIcon} title="Notifications" />
                    <div className="dropdown">
-                       <HeaderOption Icon={Avatar} title="Me" source={`${authorizedUser.photoURL}`}/>
+                       <HeaderOption Icon={Avatar} title="Me" source={`${authorizedUser.photoURL?authorizedUser.photoURL: ``}`}/>
                        <div className="dropdown__container">
                            <section className="dropdown__top">
                                <div className="dropdown__profile">
-                                   <Avatar className="dropdown__profileImg" src={`${authorizedUser.photoURL}`}/>
+                                   <Avatar className="dropdown__profileImg" src={`${authorizedUser.photoURL?authorizedUser.photoURL: ``}`}/>
                                    <div className="dropdown__profileInfo">
-                                       <h2>{authorizedUser ? authorizedUser.displayName:''}</h2>
+                                       <h2>{authorizedUser ? authorizedUser.displayName: ``}</h2>
                                        <p>{authorizedUser.email}</p>
                                    </div>
                                </div>
@@ -79,7 +87,7 @@ const Header = (props) => {
                     </div>
                 </div>  
                 <div className="header__end">
-                    <p>| Designed By John Sherchan</p>
+                    <p>| Designed By <span><a className="johnsherchan" href="https://johnsherchan.com.np" target="__blank">John Sherchan</a></span></p>
                 </div>
             </div>
             

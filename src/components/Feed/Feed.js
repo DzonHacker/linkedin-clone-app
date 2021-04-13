@@ -6,28 +6,16 @@ import EventIcon from '@material-ui/icons/Event'
 import CalendarViewDayIcon from '@material-ui/icons/CalendarViewDay';
 import FeedMedia from './FeedMedia/FeedMedia'
 import Posts from './Posts/Posts'
-import { db } from '../../firebase'
-import firebase from 'firebase'
 import { useContext } from 'react'
 import { AuthContext } from '../ProtectedRoute/Auth'
-import { useSelector } from 'react-redux'
-import { selectUser } from '../../features/userSlice'
-const Feed = () => {
+
+
+
+const Feed = (props) => {
     const {authorizedUser} = useContext(AuthContext)
-    // const user = useSelector(selectUser)
     const addPostHandler = (e) => {
-        // console.log(user)
         e.preventDefault();
-        db.collection("posts").add({
-            name: `${authorizedUser?authorizedUser.displayName: ''}`,
-            desc: '10000 followers',
-            message: 'This is test post',
-            photoUrl: 'https://i.pinimg.com/originals/73/f9/fd/73f9fd3b1c381c0cabb3ad497cf4e237.jpg',
-            profileUrl: `${authorizedUser ? authorizedUser.photoURL: ``}`,
-            likedBy: [],
-            liked: '',
-            timeStamp: firebase.firestore.FieldValue.serverTimestamp(),
-        })
+        props.handleCreatePost()
     }
     return (
         <div className="feed">
